@@ -1,7 +1,38 @@
 const boardSize = 8;
 
-//Create an empty 8 x 8 array
-const board = Array.from({length: boardSize}, ()=> []);
+const board = Array.from({length: boardSize}, ()=> Array(boardSize));
+
+function newNode() {
+    return {
+        distance: null,
+        predecessor: null
+    };
+}
+
+const start = [3, 3];
+
+
+function createMoves(start, distance = 0) {
+    let x = start[0];
+    let y = start[1];
+
+    board[x][y] = newNode();
+    board[x][y].distance = distance;
+};
+
+createMoves(start);
+console.log(board);
+
+
+
+
+
+
+
+
+
+
+
 
 //Adds an edge to the gameboard
 function addEdge(adjList, i, j) {
@@ -42,14 +73,11 @@ function createPossibleMoves(start) {
 
     addEdge(board, x, y);
     addEdge(board, (x - 1), (y + 2));
-    //Recursively check possible moves
-    createPossibleMoves([(x - 2), (y - 1)]);
     addEdge(board, (x - 2), (y - 1));
     addEdge(board, (x - 2), (y + 1));
     addEdge(board, (x + 1), (y + 2));
 }
 
 //If knight begins on board at 3, 3; board will show all possible moves
-createPossibleMoves([3, 3]);
-console.log(board);
+
 
