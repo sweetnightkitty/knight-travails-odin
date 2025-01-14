@@ -17,9 +17,9 @@ function createMoves(start, distance = 0) {
     const x = start[0];
     const y = start[1];
 
-    //If the values exceed the playable board do nothing
+    //If the values exceed the board throw an error
     if(x < 0 || y < 0 || x > 7 || y > 7) {
-        return;
+        throw new Error("Choose a valid startpoint [x, y] where x and y both must be greater than 0 and smaller than 8");
     }
 
     //Store the starting vertex in the graph
