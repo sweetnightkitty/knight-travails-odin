@@ -2,9 +2,9 @@ const boardSize = 8;
 
 const board = Array.from({length: boardSize}, ()=> Array(boardSize));
 
-function newNode() {
+function newNode(distance = null) {
     return {
-        distance: null,
+        distance: distance,
         predecessor: null
     };
 }
@@ -13,17 +13,24 @@ const start = [3, 3];
 
 
 function createMoves(start, distance = 0) {
-    let x = start[0];
-    let y = start[1];
+    const x = start[0];
+    const y = start[1];
 
-    board[x][y] = newNode();
-    board[x][y].distance = distance;
+    //Takes the start and adds it to the graph with 0 distance; stores it as a node
+    board[x][y] = newNode(distance);
+    const currentNode = board[x][y];
+
+    
+    
 };
 
 createMoves(start);
 console.log(board);
 
-
+function addSpace(board, a, b) {
+    board[a][b].push(newNode())
+    board[b][a].push(newNode());
+}
 
 
 
