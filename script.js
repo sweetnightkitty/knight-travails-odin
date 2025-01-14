@@ -9,6 +9,19 @@ function newNode() {
     };
 }
 
+const start = [3, 3];
+
+
+function createMoves(start, distance = 0) {
+    let x = start[0];
+    let y = start[1];
+
+    board[x][y] = newNode();
+    board[x][y].distance = distance;
+};
+
+createMoves(start);
+console.log(board);
 
 
 
