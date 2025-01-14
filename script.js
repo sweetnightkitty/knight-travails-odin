@@ -32,7 +32,7 @@ function createMoves(start, distance = 0) {
         const node = queue.shift();
 
         //Returns multiple child items - in an array or object
-        callback(node);
+        potentialMoves(node);
 
         //
     }
@@ -40,7 +40,7 @@ function createMoves(start, distance = 0) {
 };
 
 //Takes in a parentNode and generates all it's possible next level vertexes
-function callback(parentNode) {
+function potentialMoves(parentNode) {
 
     //Create a generic template for all potential children nodes
     const childNode = newNode(++parentNode.distance);
